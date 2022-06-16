@@ -1,0 +1,51 @@
+{
+  "name": "level2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/index.js",
+  "keywords": [],
+  "author": "Alexander Solovev",
+  "license": "ISC",
+  "scripts": {
+    "dev": "SET NODE_ENV=development&& webpack --mode=development --color --watch",
+    "build": "SET NODE_ENV=production&& webpack --mode=production --color"
+  },
+  "browserslist": {
+    "production": [
+      "defaults",
+      "IE 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "copy-webpack-plugin": "^11.0.0",
+    "core-js": "^3.23.1",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^4.0.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^7.0.0",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^3.3.1",
+    "typescript": "^4.7.3",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "@types/react": "^18.0.13",
+    "@types/react-dom": "^18.0.5",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

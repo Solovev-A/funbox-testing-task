@@ -18049,16 +18049,159 @@ var stable = __webpack_require__(28594);
 var react = __webpack_require__(67294);
 // EXTERNAL MODULE: ./node_modules/react-dom/client.js
 var client = __webpack_require__(20745);
-;// CONCATENATED MODULE: ./src/App/App.tsx
+;// CONCATENATED MODULE: ./src/components/Card/CardFeaturesList.tsx
+
+var CardFeaturesList = function CardFeaturesList(props) {
+  return /*#__PURE__*/react.createElement("ul", {
+    className: "card__features text-secondary"
+  }, props.features.map(function (feature) {
+    return /*#__PURE__*/react.createElement("li", {
+      key: feature
+    }, makeElementWithBoldNumbers(feature));
+  }));
+};
+
+function makeElementWithBoldNumbers(text) {
+  var words = text.split(' ');
+  return /*#__PURE__*/react.createElement(react.Fragment, null, words.map(function (word, index) {
+    // Использовать индекс массива в качестве ключа - очень плохо!
+    // Но в данной ситуации это не критично.
+    if (Number.isNaN(+word)) {
+      return /*#__PURE__*/react.createElement(react.Fragment, {
+        key: index
+      }, word, " ");
+    }
+
+    return /*#__PURE__*/react.createElement("span", {
+      key: index,
+      className: "text-bold"
+    }, word, " ");
+  }));
+}
+;// CONCATENATED MODULE: ./src/components/Card/Card.tsx
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var DEFAULT_BACKGROUND_URL = '/build/images/default-card-background.png';
+var DEFAULT_SLOGAN = 'Сказочное заморское яство';
+var DEFAULT_ALTERNATIVE_SLOGAN = 'Котэ не одобряет?';
+var DEFAULT_BRAND = 'Нямушка';
+var Card = function Card(props) {
+  var _props$brand, _props$backgroundUrl;
+
+  var _useState = (0,react.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      isSelected = _useState2[0],
+      setIsSelected = _useState2[1];
+
+  var _useState3 = (0,react.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isJustSelected = _useState4[0],
+      setIsJustSelected = _useState4[1];
+
+  var _useState5 = (0,react.useState)(false),
+      _useState6 = _slicedToArray(_useState5, 2),
+      isMouseOverBody = _useState6[0],
+      setIsMouseOverBody = _useState6[1];
+
+  var cardClassNames = 'card' + (isSelected ? ' selected' : '') + (props.disabled ? ' disabled' : '');
+
+  var handleBodyClick = function handleBodyClick() {
+    if (props.disabled) return;
+    var newState = !isSelected;
+    setIsSelected(newState);
+
+    if (newState) {
+      setIsJustSelected(true);
+    }
+  };
+
+  var handleMouseLeave = function handleMouseLeave() {
+    setIsJustSelected(false);
+    setIsMouseOverBody(false);
+  };
+
+  var slogan = (0,react.useMemo)(function () {
+    if (isSelected && isMouseOverBody && !isJustSelected) {
+      return DEFAULT_ALTERNATIVE_SLOGAN;
+    }
+
+    return DEFAULT_SLOGAN;
+  }, [isSelected, isMouseOverBody, isJustSelected, props.slogan]);
+  var description = (0,react.useMemo)(function () {
+    if (props.disabled) {
+      return "\u041F\u0435\u0447\u0430\u043B\u044C\u043A\u0430, ".concat(props.taste, " \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u0441\u044F.");
+    }
+
+    if (isSelected) return props.description;
+    return /*#__PURE__*/react.createElement(react.Fragment, null, 'Чего сидишь? Порадуй котэ, ', /*#__PURE__*/react.createElement("button", {
+      type: "button",
+      onClick: function onClick() {
+        return setIsSelected(true);
+      }
+    }, "\u043A\u0443\u043F\u0438"), /*#__PURE__*/react.createElement("span", null, "."));
+  }, [isSelected, props]);
+  return /*#__PURE__*/react.createElement("div", {
+    className: cardClassNames,
+    "data-just-selected": isJustSelected
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "card__body",
+    onClick: handleBodyClick,
+    onMouseEnter: function onMouseEnter() {
+      return setIsMouseOverBody(true);
+    },
+    onMouseLeave: handleMouseLeave
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "card__content"
+  }, /*#__PURE__*/react.createElement("p", {
+    className: "card__slogan text-secondary"
+  }, slogan), /*#__PURE__*/react.createElement("h2", null, (_props$brand = props.brand) !== null && _props$brand !== void 0 ? _props$brand : DEFAULT_BRAND), /*#__PURE__*/react.createElement("span", {
+    className: "card__taste"
+  }, props.taste), /*#__PURE__*/react.createElement(CardFeaturesList, {
+    features: props.features
+  })), /*#__PURE__*/react.createElement("div", {
+    className: "card__weight"
+  }, /*#__PURE__*/react.createElement("span", {
+    className: "weight-value"
+  }, props.weightKilograms), /*#__PURE__*/react.createElement("span", {
+    className: "weight-measure"
+  }, "\u043A\u0433")), /*#__PURE__*/react.createElement("div", {
+    className: "card__background",
+    style: {
+      backgroundImage: "url(\"".concat((_props$backgroundUrl = props.backgroundUrl) !== null && _props$backgroundUrl !== void 0 ? _props$backgroundUrl : DEFAULT_BACKGROUND_URL, "\")")
+    }
+  })), /*#__PURE__*/react.createElement("p", {
+    className: "card__description"
+  }, description));
+};
+;// CONCATENATED MODULE: ./src/components/Card/index.tsx
+
+/* harmony default export */ var components_Card = (Card);
+;// CONCATENATED MODULE: ./src/App.tsx
 
 
 
 var App = function App() {
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("h1", null, "\u0420\u0430\u0431\u043E\u0442\u0430\u0435\u0442!"));
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(components_Card, {
+    description: "\u0424\u0438\u043B\u0435 \u0438\u0437 \u0446\u044B\u043F\u043B\u044F\u0442 \u0441 \u0442\u0440\u044E\u0444\u0435\u043B\u044F\u043C\u0438 \u0432 \u0431\u0443\u043B\u044C\u043E\u043D\u0435.",
+    features: ['100 порций', '5 мышей в подарок', 'заказчик доволен'],
+    taste: "\u0441 \u043A\u0443\u0440\u043E\u0439",
+    weightKilograms: 5,
+    disabled: true
+  }));
 };
-;// CONCATENATED MODULE: ./src/App/index.tsx
-
-/* harmony default export */ var src_App = (App);
 ;// CONCATENATED MODULE: ./src/index.tsx
 
 
@@ -18067,7 +18210,7 @@ var App = function App() {
 var container = document.getElementById('app-root');
 if (!container) throw Error('React app container is undefined');
 var root = client.createRoot(container);
-root.render( /*#__PURE__*/react.createElement(src_App, null));
+root.render( /*#__PURE__*/react.createElement(App, null));
 }();
 /******/ })()
 ;

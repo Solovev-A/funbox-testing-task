@@ -1,0 +1,25 @@
+@mixin round($radius) {
+    width: $radius;
+    height: $radius;
+    border-radius: 50%;
+}
+
+@mixin cutCorner($angle, $size, $background-color, 
+$border-size, $border-color, $border-radius) {
+    position: relative;
+    border-radius: $border-radius;
+    background-image: linear-gradient($angle, transparent $size, $border-color $size);
+    z-index: 0;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        left: $border-size;
+        right: $border-size;
+        top: $border-size;
+        bottom: $border-size;
+        border-radius: $border-radius - $border-size;
+        background-image: linear-gradient($angle, transparent $size, $background-color $size);
+        z-index: -1;
+    }
+}

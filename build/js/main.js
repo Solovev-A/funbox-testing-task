@@ -18186,6 +18186,9 @@ var Card = function Card(props) {
     className: "card__description"
   }, description));
 };
+;// CONCATENATED MODULE: ./src/components/Card/index.tsx
+
+/* harmony default export */ var components_Card = (Card);
 ;// CONCATENATED MODULE: ./src/components/Catalog/Catalog.tsx
 
 
@@ -18221,7 +18224,7 @@ var Catalog = function Catalog() {
     return /*#__PURE__*/react.createElement("li", {
       key: product.id,
       className: "catalog__item"
-    }, /*#__PURE__*/react.createElement(Card, product));
+    }, /*#__PURE__*/react.createElement(components_Card, product));
   })));
 };
 ;// CONCATENATED MODULE: ./src/components/Catalog/index.tsx

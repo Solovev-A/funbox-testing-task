@@ -1,5 +1,5 @@
 import React from 'react';
-import Catalog from './components/Catalog/index';
+import Catalog from './components/Catalog';
 
 import './app.scss';
 

@@ -1,5 +1,5 @@
-@use '../../assets/scss/variables.scss' as *;
-@use '../../assets/scss/utils.scss' as *;
+@use "../../assets/scss/variables.scss" as *;
+@use "../../assets/scss/utils.scss" as *;
 
 $border-size: 4px;
 $border-radius: 12px;
@@ -15,26 +15,24 @@ $border-radius: 12px;
     );
 }
 
-
 .card {
     $card-selector: &;
 
     @mixin bodyMainColor($color) {
         @include cutCardCorner($color);
-                
-        & #{$card-selector}__weight {
+
+        #{$card-selector}__weight {
             background-color: $color;
         }
     }
 
     width: 320px;
 
-
     &__body {
+        @include bodyMainColor($default-color);
         height: 480px;
         padding-top: 20px;
         cursor: pointer;
-        @include cutCardCorner($default-color);
 
         &:hover {
             @include bodyMainColor($default-hover-color);
@@ -43,7 +41,7 @@ $border-radius: 12px;
                 @include bodyMainColor($selected-hover-color);
 
                 & #{$card-selector}__slogan {
-                    color: #E62E7A;;
+                    color: #e62e7a;
                 }
             }
         }
@@ -55,10 +53,10 @@ $border-radius: 12px;
         #{$card-selector}.disabled & {
             @include bodyMainColor($disabled-color);
             cursor: default;
-            color: #B3B3B3;
+            color: $disabled-color;
 
-            & #{$card-selector}__content,
-            & #{$card-selector}__background {
+            #{$card-selector}__content,
+            #{$card-selector}__background {
                 opacity: 0.5;
             }
         }
@@ -81,9 +79,9 @@ $border-radius: 12px;
         padding-left: 50px;
 
         h2 {
-        font-weight: 700;
-        font-size: 48px;
-        line-height: 56px;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 56px;
         }
     }
 
@@ -94,16 +92,14 @@ $border-radius: 12px;
     }
 
     &__taste {
-        display: block;
         margin-bottom: 15px;
+        display: block;
         font-weight: 700;
         font-size: 24px;
         line-height: 28px;
     }
 
     &__features {
-        padding: 0;
-        list-style: none;
         font-size: 14px;
         line-height: 16px;
     }
@@ -118,7 +114,6 @@ $border-radius: 12px;
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-        background-color: $default-color;
         color: #fff;
         font-weight: 400;
 
@@ -164,7 +159,7 @@ $border-radius: 12px;
         }
 
         #{$card-selector}.disabled & {
-            color: #FFFF66;
+            color: #ffff66;
         }
     }
 }

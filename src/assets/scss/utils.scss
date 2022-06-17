@@ -4,15 +4,14 @@
     border-radius: 50%;
 }
 
-@mixin cutCorner($angle, $size, $background-color, 
-$border-size, $border-color, $border-radius) {
+@mixin cutCorner($angle, $size, $background-color, $border-size, $border-color, $border-radius) {
     position: relative;
     border-radius: $border-radius;
     background-image: linear-gradient($angle, transparent $size, $border-color $size);
     z-index: 0;
-    
+
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: $border-size;
         right: $border-size;

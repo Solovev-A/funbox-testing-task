@@ -1,7 +1,7 @@
-@import 'normalize.css';
+@import "normalize.css";
 
-*, 
-*::before, 
+*,
+*::before,
 *::after {
     box-sizing: border-box;
 }
@@ -21,7 +21,7 @@ ul[class] {
 }
 
 html {
-    font-family: 'Trebuchet MS', Helvetica, Arial, sans-serif;
+    font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
     color: #000;
 }
 
@@ -32,16 +32,16 @@ main {
 
 body {
     position: relative;
-    background-image: url('./assets/img/background.png');
+    background-image: url("./assets/img/background.png");
 
     &::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0px;
         top: 0px;
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 5e-05) 50%, rgba(0, 0, 0, 0.5) 100%);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 5e-5) 50%, rgba(0, 0, 0, 0.5) 100%);
         z-index: -1;
     }
 }
@@ -50,10 +50,10 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     // IE 11 FIX "align-items: center;"
-    &:after { 
-        content: '';
+    &:after {
+        content: "";
         min-height: inherit;
         font-size: 0;
     }

@@ -18186,21 +18186,53 @@ var Card = function Card(props) {
     className: "card__description"
   }, description));
 };
-;// CONCATENATED MODULE: ./src/components/Card/index.tsx
+;// CONCATENATED MODULE: ./src/components/Catalog/Catalog.tsx
 
-/* harmony default export */ var components_Card = (Card);
+
+
+var products = [{
+  id: 1,
+  taste: 'с фуа-гра',
+  features: ['10 порций', 'мышь в подарок'],
+  weightKilograms: '0,5',
+  description: 'Печень утки разварная с артишоками.'
+}, {
+  id: 2,
+  taste: 'с рыбой',
+  features: ['40 порций', '2 мыши в подарок'],
+  weightKilograms: '2',
+  description: 'Головы щучьи с чесноком да свежайшая сёмгушка.'
+}, {
+  id: 3,
+  taste: 'с курой',
+  features: ['100 порций', '5 мышей в подарок', 'заказчик доволен'],
+  weightKilograms: '5',
+  description: 'Филе из цыплят с трюфелями в бульоне.',
+  disabled: true
+}];
+var Catalog = function Catalog() {
+  return /*#__PURE__*/react.createElement("section", {
+    className: "catalog"
+  }, /*#__PURE__*/react.createElement("header", {
+    className: "catalog__header"
+  }, "\u0422\u044B \u0441\u0435\u0433\u043E\u0434\u043D\u044F \u043F\u043E\u043A\u043E\u0440\u043C\u0438\u043B \u043A\u043E\u0442\u0430?"), /*#__PURE__*/react.createElement("ul", {
+    className: "catalog__items"
+  }, products.map(function (product) {
+    return /*#__PURE__*/react.createElement("li", {
+      key: product.id,
+      className: "catalog__item"
+    }, /*#__PURE__*/react.createElement(Card, product));
+  })));
+};
+;// CONCATENATED MODULE: ./src/components/Catalog/index.tsx
+
+/* harmony default export */ var components_Catalog = (Catalog);
 ;// CONCATENATED MODULE: ./src/App.tsx
 
 
 
 var App = function App() {
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(components_Card, {
-    description: "\u0424\u0438\u043B\u0435 \u0438\u0437 \u0446\u044B\u043F\u043B\u044F\u0442 \u0441 \u0442\u0440\u044E\u0444\u0435\u043B\u044F\u043C\u0438 \u0432 \u0431\u0443\u043B\u044C\u043E\u043D\u0435.",
-    features: ['100 порций', '5 мышей в подарок', 'заказчик доволен'],
-    taste: "\u0441 \u043A\u0443\u0440\u043E\u0439",
-    weightKilograms: 5,
-    disabled: true
-  }));
+  return /*#__PURE__*/react.createElement(components_Catalog, null);
 };
 ;// CONCATENATED MODULE: ./src/index.tsx
 

@@ -2,17 +2,9 @@ import React, { FC, useMemo, useState } from 'react';
 import { CardFeaturesList } from './CardFeaturesList';
 
 import './card.scss';
+import { Product } from '../../types';
 
-export interface CardProps {
-    taste: string;
-    features: string[];
-    weightKilograms: number;
-    description: string;
-    slogan?: string;
-    brand?: string;
-    backgroundUrl?: string;
-    disabled?: boolean;
-}
+export type CardProps = Omit<Product, 'id'>;
 
 const DEFAULT_BACKGROUND_URL = '/build/images/default-card-background.png';
 const DEFAULT_SLOGAN = 'Сказочное заморское яство';

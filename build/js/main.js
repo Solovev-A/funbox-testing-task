@@ -17996,6 +17996,14 @@ if (true) {
 } else {}
 
 
+/***/ }),
+
+/***/ 41599:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+"use strict";
+module.exports = __webpack_require__.p + "images/58676bb34b670741bded.png";
+
 /***/ })
 
 /******/ 	});
@@ -18035,6 +18043,26 @@ if (true) {
 /******/ 				if (typeof window === 'object') return window;
 /******/ 			}
 /******/ 		})();
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	!function() {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl + "../";
 /******/ 	}();
 /******/ 	
 /************************************************************************/
@@ -18094,7 +18122,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-var DEFAULT_BACKGROUND_URL = '/build/images/default-card-background.png';
+
+var defaultCardBackground = __webpack_require__(41599);
+
 var DEFAULT_SLOGAN = 'Сказочное заморское яство';
 var DEFAULT_ALTERNATIVE_SLOGAN = 'Котэ не одобряет?';
 var DEFAULT_BRAND = 'Нямушка';
@@ -18180,7 +18210,7 @@ var Card = function Card(props) {
   }, "\u043A\u0433")), /*#__PURE__*/react.createElement("div", {
     className: "card__background",
     style: {
-      backgroundImage: "url(\"".concat((_props$backgroundUrl = props.backgroundUrl) !== null && _props$backgroundUrl !== void 0 ? _props$backgroundUrl : DEFAULT_BACKGROUND_URL, "\")")
+      backgroundImage: "url(\"".concat((_props$backgroundUrl = props.backgroundUrl) !== null && _props$backgroundUrl !== void 0 ? _props$backgroundUrl : defaultCardBackground, "\")")
     }
   })), /*#__PURE__*/react.createElement("p", {
     className: "card__description"

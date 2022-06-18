@@ -1,16 +1,16 @@
 import React, { FC, useMemo, useState } from 'react';
 import { CardFeaturesList } from './CardFeaturesList';
+import { Product } from '../../types';
 
 import './card.scss';
-import { Product } from '../../types';
+const defaultCardBackground = require('./assets/default-card-background.png');
 
 export type CardProps = Omit<Product, 'id'>;
 
-const DEFAULT_BACKGROUND_URL = '/build/images/default-card-background.png';
+
 const DEFAULT_SLOGAN = 'Сказочное заморское яство';
 const DEFAULT_ALTERNATIVE_SLOGAN = 'Котэ не одобряет?';
 const DEFAULT_BRAND = 'Нямушка';
-
 
 export const Card: FC<CardProps> = (props) => {
     const [isSelected, setIsSelected] = useState<boolean>(false);
@@ -85,7 +85,7 @@ export const Card: FC<CardProps> = (props) => {
                 <div
                     className='card__background'
                     style={{
-                        backgroundImage: `url("${props.backgroundUrl ?? DEFAULT_BACKGROUND_URL}")`
+                        backgroundImage: `url("${props.backgroundUrl ?? defaultCardBackground}")`
                     }}
                 >
                 </div>

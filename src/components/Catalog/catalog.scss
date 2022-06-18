@@ -1,0 +1,28 @@
+.catalog {
+    width: 100%; // IE 11 FIX "flex-wrap: wrap;" (.catalog__item)
+
+    &__header {
+        margin-bottom: 24px;
+        font-family: "Exo 2", sans-serif;
+        font-size: 36px;
+        line-height: 44px;
+        font-weight: 100;
+        text-shadow: 0px 1px 1px #000000;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin: 0px 40px 30px;
+
+        @media (max-width: 820px) {
+            margin: 0px 20px 20px;
+        }
+    }
+}

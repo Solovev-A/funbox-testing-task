@@ -1,0 +1,173 @@
+@use "../../assets/scss/variables.scss" as *;
+@use "../../assets/scss/utils.scss" as *;
+
+$border-size: 4px;
+$border-radius: 12px;
+
+@mixin cutCardCorner($border-color) {
+    @include cutCorner(
+        $angle: 135deg,
+        $size: 5.5%,
+        $background-color: #f2f2f2,
+        $border-size: $border-size,
+        $border-color: $border-color,
+        $border-radius: $border-radius
+    );
+}
+
+.card {
+    $card-selector: &;
+
+    @mixin bodyMainColor($color) {
+        @include cutCardCorner($color);
+
+        #{$card-selector}__weight {
+            background-color: $color;
+        }
+    }
+
+    width: 320px;
+
+    &__body {
+        @include bodyMainColor($default-color);
+        height: 480px;
+        padding-top: 20px;
+        cursor: pointer;
+
+        &:hover {
+            @include bodyMainColor($default-hover-color);
+
+            #{$card-selector}.selected[data-just-selected="false"] & {
+                @include bodyMainColor($selected-hover-color);
+
+                & #{$card-selector}__slogan {
+                    color: #e62e7a;
+                }
+            }
+        }
+
+        #{$card-selector}.selected & {
+            @include bodyMainColor($selected-color);
+        }
+
+        #{$card-selector}.disabled & {
+            @include bodyMainColor($disabled-color);
+            cursor: default;
+            color: $disabled-color;
+
+            #{$card-selector}__content,
+            #{$card-selector}__background {
+                opacity: 0.5;
+            }
+        }
+    }
+
+    &__background {
+        position: absolute;
+        top: $border-size;
+        left: $border-size;
+        right: $border-size;
+        bottom: $border-size;
+        border-radius: $border-radius - $border-size;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: 203px;
+    }
+
+    &__content {
+        padding-left: 50px;
+
+        h2 {
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 56px;
+        }
+    }
+
+    &__slogan {
+        margin-bottom: 5px;
+        font-size: 16px;
+        line-height: 19px;
+    }
+
+    &__taste {
+        margin-bottom: 15px;
+        display: block;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    &__features {
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    &__weight {
+        @include round(80px);
+
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        color: #fff;
+        font-weight: 400;
+
+        .weight-value {
+            font-size: 42px;
+            line-height: 20px;
+        }
+
+        .weight-measure {
+            font-size: 21px;
+            line-height: 40px;
+        }
+    }
+
+    &__description {
+        margin-top: 14px;
+        font-size: 13px;
+        line-height: 17px;
+        color: #ffffff;
+        text-align: center;
+
+        button,
+        span {
+            color: $default-color;
+
+            &:hover {
+                color: $default-hover-color;
+            }
+        }
+
+        button {
+            display: inline-block;
+            font-weight: 700;
+            padding: 0;
+            border: 0;
+            border-bottom: 1px dashed $default-color;
+            background-color: transparent;
+            cursor: pointer;
+
+            &:hover {
+                border-color: $default-hover-color;
+            }
+        }
+
+        #{$card-selector}.disabled & {
+            color: #ffff66;
+        }
+    }
+}
+
+.text-secondary {
+    color: #666666;
+}
+
+.text-bold {
+    font-weight: 700;
+}

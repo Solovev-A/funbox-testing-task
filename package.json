@@ -8,7 +8,8 @@
   "license": "ISC",
   "scripts": {
     "dev": "SET NODE_ENV=development&& webpack --mode=development --color --watch",
-    "build": "SET NODE_ENV=production&& webpack --mode=production --color"
+    "build": "SET NODE_ENV=production&& webpack --mode=production --color",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
@@ -32,6 +33,7 @@
     "core-js": "^3.23.1",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
+    "gh-pages": "^4.0.0",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss-loader": "^7.0.0",
     "sass": "^1.52.3",

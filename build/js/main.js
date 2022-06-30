@@ -18204,9 +18204,9 @@ var Card = function Card(props) {
   })), /*#__PURE__*/react.createElement("div", {
     className: "card__weight"
   }, /*#__PURE__*/react.createElement("span", {
-    className: "weight-value"
+    className: "card__weight-value"
   }, props.weightKilograms), /*#__PURE__*/react.createElement("span", {
-    className: "weight-measure"
+    className: "card__weight-measure"
   }, "\u043A\u0433")), /*#__PURE__*/react.createElement("div", {
     className: "card__background",
     style: {

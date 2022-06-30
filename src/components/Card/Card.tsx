@@ -79,8 +79,8 @@ export const Card: FC<CardProps> = (props) => {
                     <CardFeaturesList features={props.features} />
                 </div>
                 <div className='card__weight'>
-                    <span className='weight-value'>{props.weightKilograms}</span>
-                    <span className='weight-measure'>кг</span>
+                    <span className='card__weight-value'>{props.weightKilograms}</span>
+                    <span className='card__weight-measure'>кг</span>
                 </div>
                 <div
                     className='card__background'
